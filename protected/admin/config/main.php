@@ -5,10 +5,17 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
-return array(
-	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
-
+$admin = dirname(dirname(__FILE__));
+$front = dirname($admin);
+Yii::setPathOfAlias('admin',$admin);
+$adminConfig = array(
+	'basePath'=> $front,
+	'name'=>'管理后台',
+	'defaultController' => 'index',
+	'controllerPath' => $admin.'/controllers',
+	'viewPath' => $admin.'/views',
+	'runtimePath' => $admin.'/runtime',
+	
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -16,6 +23,8 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'admin.models',
+		'admin.components'
 	),
 
 	'modules'=>array(
@@ -62,7 +71,7 @@ return array(
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
-			'errorAction'=>'site/error',
+			'errorAction'=>'index/error',
 		),
 		'log'=>array(
 			'class'=>'CLogRouter',
@@ -87,4 +96,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+	'layoutPath' => dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'layouts'.DIRECTORY_SEPARATOR,
 );
+return $adminConfig;
