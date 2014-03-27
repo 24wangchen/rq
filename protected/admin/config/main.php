@@ -10,7 +10,7 @@ $front = dirname($admin);
 Yii::setPathOfAlias('admin',$admin);
 $adminConfig = array(
 	'basePath'=> $front,
-	'name'=>'管理后台',
+	'name'=>'绠＄悊鍚庡彴',
 	'defaultController' => 'index',
 	'controllerPath' => $admin.'/controllers',
 	'viewPath' => $admin.'/views',
@@ -21,29 +21,28 @@ $adminConfig = array(
 
 	// autoloading model and component classes
 	'import'=>array(
-		'application.models.*',
-		'application.components.*',
-		'admin.models',
-		'admin.components'
+		'admin.models.*',
+		'admin.components.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'123456',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		*/
+		
 	),
 
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			//'allowAutoLogin'=>true,
+			//'class' => 'WebUser'
 		),
 		// uncomment the following to enable URLs in path-format
 		/*
@@ -63,7 +62,7 @@ $adminConfig = array(
 		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=rq',
-			'emulatePrepare' => true,
+			//'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '123456',
 			'charset' => 'utf8',
